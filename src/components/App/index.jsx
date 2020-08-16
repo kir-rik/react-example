@@ -1,10 +1,10 @@
-import React from "react";
-import HelloWorld from "../HelloWorld";
+import React from 'react';
+import Text from '../Text';
+import Button from '../Button';
 
 export default () => (
   <main>
-    <HelloWorld />
-    <HelloWorld multiverse />
-    <HelloWorld multiverse='Упс' />
+    <Text value='Какой-то текст'/>
+    <Button title="Какая-то кнопка" handleClick={() => console.log('Клац')}/>
   </main>
 );
