@@ -10,12 +10,7 @@ export default class App extends React.PureComponent {
   };
 
   handleClick = () =>
-    this.setState((state, props) => {
-      return {
-        text1: state.text1 + '1',
-        text2: 'Поклацано',
-      };
-    });
+    this.state.text1='Какой-то текст';
 
   render() {
     const { text1, text2, text3 } = this.state;
