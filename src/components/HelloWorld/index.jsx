@@ -1,4 +1,16 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import styles from './styles'
 
-export default ({ multiverse }) => <div className={styles.text}>{`Hello World${multiverse ? 's' : ''}!`}</div>;
+const helloWorld = ({ multiverse }) => <div className={styles.text}>{`Hello World${multiverse ? 's' : ''}!`}</div>;
+
+helloWorld.propTypes = {
+    multiverse: PropTypes.bool
+}
+
+helloWorld.defaultProps = {
+    multiverse: false
+}
+
+
+export default helloWorld
