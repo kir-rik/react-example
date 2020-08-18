@@ -10,7 +10,6 @@ import Text from '../Text';
       * handleClick для завершения
 */
 
-
 export default class Loader extends React.PureComponent {
   static propTypes = {
     handleClick: PropTypes.func.isRequired,
@@ -20,6 +19,10 @@ export default class Loader extends React.PureComponent {
 
   componentDidMount() {
     this.timerId = setTimeout(() => this.setState(() => ({ text: 'Долговато' })), 5 * 1000);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timerId);
   }
 
   render() {
