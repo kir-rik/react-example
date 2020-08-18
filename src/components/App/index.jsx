@@ -1,31 +1,21 @@
 import React from 'react';
 import Text from '../Text';
+import Loader from '../Loader';
 
 export default class App extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.counter = 0;
-
     this.state = {
-      text: 'constructor',
+      isLoadig: true,
     };
   }
 
-  componentDidMount() {
-    this.counter++;
-    console.log('componentDidMount', this.counter);
-    // this.setState(() => ({ text: 'afterDidMount' }));
-  }
+  completeLoading = () => this.setState(() => ({ isLoadig: false }));
 
   render() {
-    const { text } = this.state;
+    const { isLoadig } = this.state;
 
-    return (
-      <div>
-        <Text value={text} />
-        <Text value={this.counter} />
-      </div>
-    );
+    return isLoadig ? <Loader handleClick={this.completeLoading} /> : <Text value="Загружено" />;
   }
 }
