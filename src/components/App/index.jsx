@@ -1,34 +1,31 @@
 import React from 'react';
-import ObjectView from '../ObjectView';
-import Button from '../Button';
+import Text from '../Text';
 
 export default class App extends React.PureComponent {
-  state = {
-    data: {
-      a: 1,
-      b: 2,
-      c: 3,
-    },
-  };
+  constructor(props) {
+    super(props);
 
-  handleClick = () =>
-    this.setState((state, props) => {
-      return {
-        data: {
-          ...state.data,
-          d: (state.data.d || state.data.c) + 1,
-        },
-      };
-    });
+    this.counter = 0;
+
+    this.state = {
+      text: 'constructor',
+    };
+  }
+
+  componentDidMount() {
+    this.counter++;
+    console.log('componentDidMount', this.counter);
+    // this.setState(() => ({ text: 'afterDidMount' }));
+  }
 
   render() {
-    const { data } = this.state;
+    const { text } = this.state;
 
     return (
-      <main>
-        <ObjectView data={data} />
-        <Button title="Какая-то кнопка" handleClick={this.handleClick} />
-      </main>
+      <div>
+        <Text value={text} />
+        <Text value={this.counter} />
+      </div>
     );
   }
 }

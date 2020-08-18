@@ -5,7 +5,7 @@ import styles from './styles';
 const text = ({ value }) => <div className={styles.text}>{value}</div>;
 
 text.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 text.defaultProps = {
